@@ -206,12 +206,12 @@ return [
          * Where is the auth value meant to be sent in a request?
          * Options: query, body, basic, bearer, header (for custom header)
          */
-        'in' => 'bearer',
+        'in' => 'header',
 
         /*
          * The name of the auth parameter (eg token, key, apiKey) or header (eg Authorization, Api-Key).
          */
-        'name' => 'key',
+        'name' => 'Authorization',
 
         /*
          * The value of the parameter to be used by Scribe to authenticate response calls.
@@ -253,6 +253,7 @@ INTRO
     'example_languages' => [
         'bash',
         'javascript',
+        'php'
     ],
 
     /*

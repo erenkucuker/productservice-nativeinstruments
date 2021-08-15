@@ -16,8 +16,9 @@ class AuthController extends Controller
 
     /**
      * 
-     * Log in the user.
-     *
+     * Authenticating the user.
+     * @unauthenticated
+     * 
      * @bodyParam   email    string  required    The email of the  user.      Example: testuser@example.com
      * @bodyParam   password    string  required    The password of the  user.   Example: secret
      *

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Native Instrument Product Service API",
-        "_postman_id": "58310e37-c677-4188-8a08-40b86bb17315",
+        "_postman_id": "00eb2781-ae95-4a5c-85fd-8777a65f8745",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,7 +20,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "api\/v1",
+                    "name": "Home",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -41,7 +41,10 @@
                             }
                         ],
                         "body": null,
-                        "description": ""
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": [
                         {
@@ -56,13 +59,13 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "Welcome to ",
+                            "body": "Welcome to ProductService",
                             "name": null
                         }
                     ]
                 },
                 {
-                    "name": "Log in the user.",
+                    "name": "Authenticating the user.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -86,7 +89,10 @@
                             "mode": "raw",
                             "raw": "{\"email\":\"testuser@example.com\",\"password\":\"secret\"}"
                         },
-                        "description": ""
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": [
                         {
@@ -94,48 +100,6 @@
                             "code": 200,
                             "body": "{\n\"success\": true,\n\"data\": {\n\"access_token\": \"6|dnXwYoauF0NJQOdfFgeJvtAPI5eWWWIJmkzIHG5s\"\n},\n\"link\": [],\n\"meta\": [],\n\"message\": \"\"\n}",
                             "name": "200"
-                        }
-                    ]
-                },
-                {
-                    "name": "api\/v2",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v2",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/v2"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 200,
-                            "body": "Welcome to ",
-                            "name": null
                         }
                     ]
                 }
@@ -298,7 +262,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"product_sku\":\"kontakt-4\"}"
+                        },
                         "description": ""
                     },
                     "response": []
@@ -316,7 +283,7 @@
                                 {
                                     "id": "sku",
                                     "key": "sku",
-                                    "value": "quo",
+                                    "value": "ad",
                                     "description": ""
                                 }
                             ]
@@ -332,7 +299,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"product_sku\":\"kontakt-4\"}"
+                        },
                         "description": ""
                     },
                     "response": []
@@ -350,7 +320,7 @@
                                 {
                                     "id": "sku",
                                     "key": "sku",
-                                    "value": "cum",
+                                    "value": "ullam",
                                     "description": ""
                                 }
                             ]
@@ -366,7 +336,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"product_sku\":\"kontakt-4\"}"
+                        },
                         "description": ""
                     },
                     "response": []
@@ -384,7 +357,7 @@
                                 {
                                     "id": "sku",
                                     "key": "sku",
-                                    "value": "temporibus",
+                                    "value": "molestiae",
                                     "description": ""
                                 }
                             ]
@@ -409,6 +382,18 @@
         }
     ],
     "auth": {
-        "type": "bearer"
+        "type": "apikey",
+        "apikey": [
+            {
+                "key": "in",
+                "value": "header",
+                "type": "string"
+            },
+            {
+                "key": "key",
+                "value": "Authorization",
+                "type": "string"
+            }
+        ]
     }
 }

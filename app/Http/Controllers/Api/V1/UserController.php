@@ -47,7 +47,7 @@ class UserController extends Controller
     /**
      * @group User Management
      * Create Users Purchase.
-     *
+     * @bodyParam   product_sku    string  required    Products Sku.   Example: kontakt-4
      *
      */
     public function storeUsersPurchase(Request $request)
@@ -68,7 +68,7 @@ class UserController extends Controller
     /**
      * @group User Management
      * Update Users Purchase.
-     *
+     * @bodyParam   product_sku    string  required    Products Sku.   Example: kontakt-4
      *
      */
     public function updateUsersPurchase(Request $request,$sku)

@@ -16,7 +16,10 @@
 
 
 
-
+/**
+* Home 
+* @unauthenticated
+*/
 $router->get('/', function () use ($router) {
     return 'Welcome to ' . env('APP_NAME');
 });

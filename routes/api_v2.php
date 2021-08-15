@@ -17,6 +17,3 @@
 
 
 
-$router->get('/', function () use ($router) {
-    return 'Welcome to ' . config('app.app_name');
-});
