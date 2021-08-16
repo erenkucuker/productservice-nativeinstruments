@@ -47,8 +47,11 @@ class AuthController extends Controller
             return $this->failure('Your credentials are incorrect.',401);
         }
         $api_key = base64_encode(Str::random(30));
-        ApiKey::where('user_id', $user->id)->update([
-            'key' => $api_key
+        
+        ApiKey::where('user_id', $user->id)->updateOrCreate([
+            'user_id' => $user->id,
+            'key' => $api_key,
+            'abilities' => '[*]'
         ]);
         return $this->success('',['access_token' => $api_key]);
     }
