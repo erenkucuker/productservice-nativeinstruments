@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 
+
 class ProductController extends Controller
 {
     
@@ -18,12 +19,11 @@ class ProductController extends Controller
     /**
      * @group Product Management
      * Get All Products.
-     *
-     *
+     *  
      */
     public function index()
     { 
-        $products = Product::paginate(25);
+        $products = Product::paginate(10);
         return $this->success('',$products);
     }
     

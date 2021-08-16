@@ -29,6 +29,7 @@ $router->post('/auth', 'AuthController@login');
 
     //Check Auth
 $router->group(['middleware' => 'auth'], function () use ($router) {
+    
     //User Routes
     $router->group(['prefix'=> 'user'],function() use ($router){
         $router->get('/', 'UserController@index');

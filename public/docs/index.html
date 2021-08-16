@@ -19,7 +19,7 @@
 
     <script src="//cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
     <script>
-        var baseUrl = "http://localhost:8002";
+        var baseUrl = "http://localhost:8003";
     </script>
     <script src="../docs/js/tryitout-3.8.0.js"></script>
 
@@ -53,7 +53,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: August 15 2021</li>
+            <li>Last updated: August 16 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -66,10 +66,10 @@ You can switch the language used with the tabs at the top right (or from the nav
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">http://localhost:8002</code></pre>
+<pre><code class="language-yaml">http://localhost:8003</code></pre>
 
         <h1>Authenticating requests</h1>
-<p>This API is authenticated by sending a <strong><code>Authorization</code></strong> header with the value <strong><code>"{YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>Authenticate requests to this API's endpoints by sending a <strong><code>Authorization</code></strong> header with the value <strong><code>"Z1VSSmRzaGp5WEZlbjF1SkRmclVyaFdWbU93UWpX"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
@@ -89,17 +89,19 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8002/api/v1" \
+    --get "http://localhost:8003/api/v1" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
+    --header "Accept: application/json" \
+    --header "Authorization: NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8002/api/v1"
+    "http://localhost:8003/api/v1"
 );
 
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP",
 };
 
 fetch(url, {
@@ -109,10 +111,11 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://localhost:8002/api/v1',
+    'http://localhost:8003/api/v1',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP',
         ],
     ]
 );
@@ -133,7 +136,7 @@ content-type: application/json
  </code></pre>
         </details>         <pre>
 
-<code class="language-json">Welcome to ProductService</code>
+<code class="language-json">Welcome to productservice</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-v1" hidden>
@@ -151,7 +154,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1', this);">
     <h3>
@@ -189,9 +192,10 @@ content-type: application/json
 
 
 <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8002/api/v1/auth" \
+    "http://localhost:8003/api/v1/auth" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
+    --header "Authorization: NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP" \
     --data "{
     \"email\": \"testuser@example.com\",
     \"password\": \"secret\"
@@ -199,12 +203,13 @@ content-type: application/json
 </code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8002/api/v1/auth"
+    "http://localhost:8003/api/v1/auth"
 );
 
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP",
 };
 
 let body = {
@@ -220,10 +225,11 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://localhost:8002/api/v1/auth',
+    'http://localhost:8003/api/v1/auth',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP',
         ],
         'json' =&gt; [
             'email' =&gt; 'testuser@example.com',
@@ -267,7 +273,7 @@ print_r(json_decode((string) $body));</code></pre>
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-auth', this);">
     <h3>
@@ -328,17 +334,17 @@ print_r(json_decode((string) $body));</code></pre>
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8002/api/v1/products" \
-    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --get "http://localhost:8003/api/v1/products" \
+    --header "Authorization: NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8002/api/v1/products"
+    "http://localhost:8003/api/v1/products"
 );
 
 const headers = {
-    "Authorization": "{YOUR_AUTH_KEY}",
+    "Authorization": "NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -350,10 +356,10 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://localhost:8002/api/v1/products',
+    'http://localhost:8003/api/v1/products',
     [
         'headers' =&gt; [
-            'Authorization' =&gt; '{YOUR_AUTH_KEY}',
+            'Authorization' =&gt; 'NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP',
             'Accept' =&gt; 'application/json',
         ],
     ]
@@ -364,18 +370,57 @@ print_r(json_decode((string) $body));</code></pre>
 
 <span id="example-responses-GETapi-v1-products">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
- </code></pre>
-        </details>         <pre>
+                <pre>
 
-<code class="language-json">Unauthorized.</code>
+<code class="language-json">{
+
+
+
+     
+{
+  &quot;success&quot;: true,
+ &quot;data&quot;: [
+      {
+      &quot;sku&quot;: &quot;battery-4&quot;,
+      &quot;name&quot;: &quot;Battery 4&quot;
+      },
+      {
+      &quot;sku&quot;: &quot;guitar-rig-5&quot;,
+      &quot;name&quot;: &quot;Guitar Rig 5&quot;
+      }
+  ],
+  &quot;link&quot;: {
+    &quot;next_page_url&quot;: &quot;http://localhost:8003/api/v1/products?page=2&quot;,
+      &quot;previous_page_url&quot;: null
+  },
+  &quot;meta&quot;: {
+      &quot;per_page&quot;: 10,
+      &quot;current_page&quot;: 1,
+      &quot;total&quot;: 19,
+      &quot;last_page&quot;: 2
+  },
+  &quot;message&quot;: &quot;&quot;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-v1-products" hidden>
@@ -393,7 +438,7 @@ content-type: application/json
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Authorization":"{YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-products', this);">
     <h3>
@@ -444,17 +489,17 @@ content-type: application/json
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8002/api/v1/user" \
-    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --get "http://localhost:8003/api/v1/user" \
+    --header "Authorization: NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8002/api/v1/user"
+    "http://localhost:8003/api/v1/user"
 );
 
 const headers = {
-    "Authorization": "{YOUR_AUTH_KEY}",
+    "Authorization": "NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -466,10 +511,10 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://localhost:8002/api/v1/user',
+    'http://localhost:8003/api/v1/user',
     [
         'headers' =&gt; [
-            'Authorization' =&gt; '{YOUR_AUTH_KEY}',
+            'Authorization' =&gt; 'NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP',
             'Accept' =&gt; 'application/json',
         ],
     ]
@@ -480,7 +525,7 @@ print_r(json_decode((string) $body));</code></pre>
 
 <span id="example-responses-GETapi-v1-user">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary>
@@ -491,7 +536,17 @@ content-type: application/json
  </code></pre>
         </details>         <pre>
 
-<code class="language-json">Unauthorized.</code>
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Weston Ratke&quot;,
+        &quot;email&quot;: &quot;mac94@moen.com&quot;
+    },
+    &quot;link&quot;: [],
+    &quot;meta&quot;: [],
+    &quot;message&quot;: &quot;&quot;
+}</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-v1-user" hidden>
@@ -509,7 +564,7 @@ content-type: application/json
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Authorization":"{YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user', this);">
     <h3>
@@ -556,17 +611,17 @@ content-type: application/json
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8002/api/v1/user/products" \
-    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --get "http://localhost:8003/api/v1/user/products" \
+    --header "Authorization: NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8002/api/v1/user/products"
+    "http://localhost:8003/api/v1/user/products"
 );
 
 const headers = {
-    "Authorization": "{YOUR_AUTH_KEY}",
+    "Authorization": "NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -578,10 +633,10 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://localhost:8002/api/v1/user/products',
+    'http://localhost:8003/api/v1/user/products',
     [
         'headers' =&gt; [
-            'Authorization' =&gt; '{YOUR_AUTH_KEY}',
+            'Authorization' =&gt; 'NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP',
             'Accept' =&gt; 'application/json',
         ],
     ]
@@ -592,7 +647,7 @@ print_r(json_decode((string) $body));</code></pre>
 
 <span id="example-responses-GETapi-v1-user-products">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary>
@@ -603,7 +658,38 @@ content-type: application/json
  </code></pre>
         </details>         <pre>
 
-<code class="language-json">Unauthorized.</code>
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: [
+        {
+            &quot;user_id&quot;: 1,
+            &quot;product_sku&quot;: &quot;battery-4&quot;
+        },
+        {
+            &quot;user_id&quot;: 1,
+            &quot;product_sku&quot;: &quot;una-corda&quot;
+        },
+        {
+            &quot;user_id&quot;: 1,
+            &quot;product_sku&quot;: &quot;kontakt-6&quot;
+        },
+        {
+            &quot;user_id&quot;: 1,
+            &quot;product_sku&quot;: &quot;blabla&quot;
+        }
+    ],
+    &quot;link&quot;: {
+        &quot;next_page_url&quot;: null,
+        &quot;previous_page_url&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;per_page&quot;: 20,
+        &quot;current_page&quot;: 1,
+        &quot;total&quot;: 4,
+        &quot;last_page&quot;: 1
+    },
+    &quot;message&quot;: &quot;&quot;
+}</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-v1-user-products" hidden>
@@ -621,7 +707,7 @@ content-type: application/json
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Authorization":"{YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-products', this);">
     <h3>
@@ -668,27 +754,27 @@ content-type: application/json
 
 
 <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8002/api/v1/user/products" \
-    --header "Authorization: {YOUR_AUTH_KEY}" \
+    "http://localhost:8003/api/v1/user/products" \
+    --header "Authorization: NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"product_sku\": \"kontakt-4\"
+    \"sku\": \"kontakt-4\"
 }"
 </code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8002/api/v1/user/products"
+    "http://localhost:8003/api/v1/user/products"
 );
 
 const headers = {
-    "Authorization": "{YOUR_AUTH_KEY}",
+    "Authorization": "NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "product_sku": "kontakt-4"
+    "sku": "kontakt-4"
 }
 
 fetch(url, {
@@ -699,14 +785,14 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://localhost:8002/api/v1/user/products',
+    'http://localhost:8003/api/v1/user/products',
     [
         'headers' =&gt; [
-            'Authorization' =&gt; '{YOUR_AUTH_KEY}',
+            'Authorization' =&gt; 'NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'product_sku' =&gt; 'kontakt-4',
+            'sku' =&gt; 'kontakt-4',
         ],
     ]
 );
@@ -715,7 +801,30 @@ print_r(json_decode((string) $body));</code></pre>
 </span>
 
 <span id="example-responses-POSTapi-v1-user-products">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;user_id&quot;: 1,
+        &quot;product_sku&quot;: &quot;kontakt-4&quot;
+    },
+    &quot;link&quot;: [],
+    &quot;meta&quot;: [],
+    &quot;message&quot;: &quot;Users purchased product created.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-user-products" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-user-products"></span>:
@@ -731,7 +840,7 @@ print_r(json_decode((string) $body));</code></pre>
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Authorization":"{YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user-products', this);">
     <h3>
@@ -765,9 +874,9 @@ print_r(json_decode((string) $body));</code></pre>
         </p>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
-            <b><code>product_sku</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+            <b><code>sku</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
-               name="product_sku"
+               name="sku"
                data-endpoint="POSTapi-v1-user-products"
                data-component="body" required  hidden>
     <br>
@@ -788,27 +897,27 @@ print_r(json_decode((string) $body));</code></pre>
 
 
 <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8002/api/v1/user/products/ad" \
-    --header "Authorization: {YOUR_AUTH_KEY}" \
+    "http://localhost:8003/api/v1/user/products/odio" \
+    --header "Authorization: NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"product_sku\": \"kontakt-4\"
+    \"sku\": \"kontakt-4\"
 }"
 </code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8002/api/v1/user/products/ad"
+    "http://localhost:8003/api/v1/user/products/odio"
 );
 
 const headers = {
-    "Authorization": "{YOUR_AUTH_KEY}",
+    "Authorization": "NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "product_sku": "kontakt-4"
+    "sku": "kontakt-4"
 }
 
 fetch(url, {
@@ -819,14 +928,14 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://localhost:8002/api/v1/user/products/ad',
+    'http://localhost:8003/api/v1/user/products/odio',
     [
         'headers' =&gt; [
-            'Authorization' =&gt; '{YOUR_AUTH_KEY}',
+            'Authorization' =&gt; 'NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'product_sku' =&gt; 'kontakt-4',
+            'sku' =&gt; 'kontakt-4',
         ],
     ]
 );
@@ -835,7 +944,427 @@ print_r(json_decode((string) $body));</code></pre>
 </span>
 
 <span id="example-responses-PUTapi-v1-user-products--sku-">
-</span>
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Creating default object from empty value&quot;,
+    &quot;exception&quot;: &quot;ErrorException&quot;,
+    &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/app\/Http\/Controllers\/Api\/V1\/UserController.php&quot;,
+    &quot;line&quot;: 77,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/app\/Http\/Controllers\/Api\/V1\/UserController.php&quot;,
+            &quot;line&quot;: 77,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;updateUsersPurchase&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Controllers\\Api\\V1\\UserController&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/Util.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 386,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 352,
+            &quot;function&quot;: &quot;callControllerCallable&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 326,
+            &quot;function&quot;: &quot;callLumenController&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 279,
+            &quot;function&quot;: &quot;callControllerAction&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 259,
+            &quot;function&quot;: &quot;callActionOnArrayBasedRoute&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Routing\/Pipeline.php&quot;,
+            &quot;line&quot;: 48,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/app\/Http\/Middleware\/Authenticate.php&quot;,
+            &quot;line&quot;: 42,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/pipeline\/Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\Authenticate&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Routing\/Pipeline.php&quot;,
+            &quot;line&quot;: 30,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/app\/Http\/Middleware\/ApiVersion.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/pipeline\/Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\ApiVersion&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Routing\/Pipeline.php&quot;,
+            &quot;line&quot;: 30,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/pipeline\/Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 423,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 260,
+            &quot;function&quot;: &quot;sendThroughPipeline&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 234,
+            &quot;function&quot;: &quot;handleFoundRoute&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 170,
+            &quot;function&quot;: &quot;handleDispatcherResponse&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Routing\/Pipeline.php&quot;,
+            &quot;line&quot;: 48,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/app\/Http\/Middleware\/Logging.php&quot;,
+            &quot;line&quot;: 14,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/pipeline\/Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\Logging&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Routing\/Pipeline.php&quot;,
+            &quot;line&quot;: 30,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/pipeline\/Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 423,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 172,
+            &quot;function&quot;: &quot;sendThroughPipeline&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 92,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php&quot;,
+            &quot;line&quot;: 296,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php&quot;,
+            &quot;line&quot;: 275,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php&quot;,
+            &quot;line&quot;: 86,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php&quot;,
+            &quot;line&quot;: 44,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php&quot;,
+            &quot;line&quot;: 34,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php&quot;,
+            &quot;line&quot;: 225,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php&quot;,
+            &quot;line&quot;: 182,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 118,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 75,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 51,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 39,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/Util.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/console\/Command.php&quot;,
+            &quot;line&quot;: 136,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/symfony\/console\/Command\/Command.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/console\/Command.php&quot;,
+            &quot;line&quot;: 121,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/symfony\/console\/Application.php&quot;,
+            &quot;line&quot;: 978,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/symfony\/console\/Application.php&quot;,
+            &quot;line&quot;: 295,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/symfony\/console\/Application.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/console\/Application.php&quot;,
+            &quot;line&quot;: 92,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Console\/Kernel.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/artisan&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PUTapi-v1-user-products--sku-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-v1-user-products--sku-"></span>:
@@ -851,7 +1380,7 @@ print_r(json_decode((string) $body));</code></pre>
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Authorization":"{YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-user-products--sku-', this);">
     <h3>
@@ -894,9 +1423,9 @@ print_r(json_decode((string) $body));</code></pre>
             </p>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
-            <b><code>product_sku</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+            <b><code>sku</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
-               name="product_sku"
+               name="sku"
                data-endpoint="PUTapi-v1-user-products--sku-"
                data-component="body" required  hidden>
     <br>
@@ -917,27 +1446,27 @@ print_r(json_decode((string) $body));</code></pre>
 
 
 <pre><code class="language-bash">curl --request PATCH \
-    "http://localhost:8002/api/v1/user/products/ullam" \
-    --header "Authorization: {YOUR_AUTH_KEY}" \
+    "http://localhost:8003/api/v1/user/products/quisquam" \
+    --header "Authorization: NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"product_sku\": \"kontakt-4\"
+    \"sku\": \"kontakt-4\"
 }"
 </code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8002/api/v1/user/products/ullam"
+    "http://localhost:8003/api/v1/user/products/quisquam"
 );
 
 const headers = {
-    "Authorization": "{YOUR_AUTH_KEY}",
+    "Authorization": "NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "product_sku": "kontakt-4"
+    "sku": "kontakt-4"
 }
 
 fetch(url, {
@@ -948,14 +1477,14 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;patch(
-    'http://localhost:8002/api/v1/user/products/ullam',
+    'http://localhost:8003/api/v1/user/products/quisquam',
     [
         'headers' =&gt; [
-            'Authorization' =&gt; '{YOUR_AUTH_KEY}',
+            'Authorization' =&gt; 'NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'product_sku' =&gt; 'kontakt-4',
+            'sku' =&gt; 'kontakt-4',
         ],
     ]
 );
@@ -964,7 +1493,427 @@ print_r(json_decode((string) $body));</code></pre>
 </span>
 
 <span id="example-responses-PATCHapi-v1-user-products--sku-">
-</span>
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Creating default object from empty value&quot;,
+    &quot;exception&quot;: &quot;ErrorException&quot;,
+    &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/app\/Http\/Controllers\/Api\/V1\/UserController.php&quot;,
+    &quot;line&quot;: 77,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/app\/Http\/Controllers\/Api\/V1\/UserController.php&quot;,
+            &quot;line&quot;: 77,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;updateUsersPurchase&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Controllers\\Api\\V1\\UserController&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/Util.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 386,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 352,
+            &quot;function&quot;: &quot;callControllerCallable&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 326,
+            &quot;function&quot;: &quot;callLumenController&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 279,
+            &quot;function&quot;: &quot;callControllerAction&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 259,
+            &quot;function&quot;: &quot;callActionOnArrayBasedRoute&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Routing\/Pipeline.php&quot;,
+            &quot;line&quot;: 48,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/app\/Http\/Middleware\/Authenticate.php&quot;,
+            &quot;line&quot;: 42,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/pipeline\/Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\Authenticate&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Routing\/Pipeline.php&quot;,
+            &quot;line&quot;: 30,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/app\/Http\/Middleware\/ApiVersion.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/pipeline\/Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\ApiVersion&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Routing\/Pipeline.php&quot;,
+            &quot;line&quot;: 30,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/pipeline\/Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 423,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 260,
+            &quot;function&quot;: &quot;sendThroughPipeline&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 234,
+            &quot;function&quot;: &quot;handleFoundRoute&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 170,
+            &quot;function&quot;: &quot;handleDispatcherResponse&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Routing\/Pipeline.php&quot;,
+            &quot;line&quot;: 48,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/app\/Http\/Middleware\/Logging.php&quot;,
+            &quot;line&quot;: 14,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/pipeline\/Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\Logging&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Routing\/Pipeline.php&quot;,
+            &quot;line&quot;: 30,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/pipeline\/Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 423,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 172,
+            &quot;function&quot;: &quot;sendThroughPipeline&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php&quot;,
+            &quot;line&quot;: 92,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php&quot;,
+            &quot;line&quot;: 296,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php&quot;,
+            &quot;line&quot;: 275,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php&quot;,
+            &quot;line&quot;: 86,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php&quot;,
+            &quot;line&quot;: 44,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php&quot;,
+            &quot;line&quot;: 34,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php&quot;,
+            &quot;line&quot;: 225,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php&quot;,
+            &quot;line&quot;: 182,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 118,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 75,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 51,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 39,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/Util.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/container\/Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/console\/Command.php&quot;,
+            &quot;line&quot;: 136,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/symfony\/console\/Command\/Command.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/console\/Command.php&quot;,
+            &quot;line&quot;: 121,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/symfony\/console\/Application.php&quot;,
+            &quot;line&quot;: 978,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/symfony\/console\/Application.php&quot;,
+            &quot;line&quot;: 295,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/symfony\/console\/Application.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/illuminate\/console\/Application.php&quot;,
+            &quot;line&quot;: 92,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/vendor\/laravel\/lumen-framework\/src\/Console\/Kernel.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;\/home\/eren\/Desktop\/tryy\/ni-productservice\/artisan&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PATCHapi-v1-user-products--sku-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PATCHapi-v1-user-products--sku-"></span>:
@@ -980,7 +1929,7 @@ print_r(json_decode((string) $body));</code></pre>
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Authorization":"{YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('PATCHapi-v1-user-products--sku-', this);">
     <h3>
@@ -1023,9 +1972,9 @@ print_r(json_decode((string) $body));</code></pre>
             </p>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
-            <b><code>product_sku</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+            <b><code>sku</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
-               name="product_sku"
+               name="sku"
                data-endpoint="PATCHapi-v1-user-products--sku-"
                data-component="body" required  hidden>
     <br>
@@ -1046,17 +1995,17 @@ print_r(json_decode((string) $body));</code></pre>
 
 
 <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8002/api/v1/user/products/molestiae" \
-    --header "Authorization: {YOUR_AUTH_KEY}" \
+    "http://localhost:8003/api/v1/user/products/ab" \
+    --header "Authorization: NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8002/api/v1/user/products/molestiae"
+    "http://localhost:8003/api/v1/user/products/ab"
 );
 
 const headers = {
-    "Authorization": "{YOUR_AUTH_KEY}",
+    "Authorization": "NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1068,10 +2017,10 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://localhost:8002/api/v1/user/products/molestiae',
+    'http://localhost:8003/api/v1/user/products/ab',
     [
         'headers' =&gt; [
-            'Authorization' =&gt; '{YOUR_AUTH_KEY}',
+            'Authorization' =&gt; 'NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP',
             'Accept' =&gt; 'application/json',
         ],
     ]
@@ -1081,7 +2030,27 @@ print_r(json_decode((string) $body));</code></pre>
 </span>
 
 <span id="example-responses-DELETEapi-v1-user-products--sku-">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: 0,
+    &quot;link&quot;: [],
+    &quot;meta&quot;: [],
+    &quot;message&quot;: &quot;Users purchased product deleted.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-DELETEapi-v1-user-products--sku-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-v1-user-products--sku-"></span>:
@@ -1097,7 +2066,7 @@ print_r(json_decode((string) $body));</code></pre>
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Authorization":"{YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"NzdYMVhVTjJjZVZoUnJncjlveHB3V094THBxMmJP","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-user-products--sku-', this);">
     <h3>

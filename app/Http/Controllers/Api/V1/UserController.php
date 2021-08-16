@@ -39,15 +39,14 @@ class UserController extends Controller
         /*We are using Eloquent ORM for now but its getting slower and we would use DB facade if 
         records was more thn 100k or you have much more complex relation on your data.*/
         $user_id = ($request->user())->get()->pluck('id')->first();
-        $users_purchase = Purchase::where('user_id','=',$user_id)->paginate(25);
-        $users_purchase = ['purchase' => $users_purchase ];
-        return $this->success('',[$users_purchase]);
+        $users_purchase = Purchase::where('user_id','=',$user_id)->paginate(20);
+        return $this->success('',$users_purchase);
         
     }
     /**
      * @group User Management
      * Create Users Purchase.
-     * @bodyParam   product_sku    string  required    Products Sku.   Example: kontakt-4
+     * @bodyParam   sku    string  required    Products Sku.   Example: kontakt-4
      *
      */
     public function storeUsersPurchase(Request $request)
@@ -55,12 +54,12 @@ class UserController extends Controller
         $user_id = ($request->user())->get()->pluck('id')->first();
         
         $data = $this->validate($request,[
-            'product_sku' => ['required'],
+            'sku' => ['required'],
         ]);
 
         $purchase = Purchase::create([
             'user_id' => $user_id,
-            'product_sku' => $data['product_sku']
+            'product_sku' => $data['sku']
         ]);
 
         return $this->success('Users purchased product created.',$purchase);
@@ -68,14 +67,14 @@ class UserController extends Controller
     /**
      * @group User Management
      * Update Users Purchase.
-     * @bodyParam   product_sku    string  required    Products Sku.   Example: kontakt-4
+     * @bodyParam   sku    string  required    Products Sku.   Example: kontakt-4
      *
      */
     public function updateUsersPurchase(Request $request,$sku)
     {
-        $data = $request->only('product_sku');
+        $data = $request->only('sku');
         $purchase = Purchase::where('product_sku','=',$sku)->first();
-        isset($data['product_sku']) ? $purchase->product_sku = $data['product_sku']: null;
+        isset($data['sku']) ? $purchase->product_sku = $data['sku']: null;
         $purchase->save();
         return $this->success('Users purchased product updated.',$purchase);
     }
