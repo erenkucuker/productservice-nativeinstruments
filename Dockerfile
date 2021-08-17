@@ -37,7 +37,7 @@ RUN mkdir -p /home/$user/.composer && \
 WORKDIR /var/www
 
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --no-interaction -o
+
 
 
 USER $user

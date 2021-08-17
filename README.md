@@ -1,24 +1,51 @@
-# Lumen PHP Framework
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
+# Product Service
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+A little Containerised Laravel-Lumen Product Service
 
-## Official Documentation
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+## Features
 
-## Contributing
+- Logging Errors and Response Request Outputs
+- Api Versioning
+- Api Documentation on /docs
+- Generalized Api Responses
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+  
+## Environment Variables
 
-## Security Vulnerabilities
+To run this project, you will need to add the following environment variables to your .env file
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+`APP_KEY => Random 32 characters string`
 
+`SCRIBE_AUTH_KEY => When regenerate Scribe Api Documentation.`
+
+`APP_DEBUG => For simulate Product mode that should be false.`  
+## Installation
+
+Install my-project with npm
+
+```bash
+docker-compose build app && docker-compose up -d
+```
+    
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  "./vendor/bin/phpunit"
+```
+
+  
+## Authors
+
+- [@erenkucukersoftware](https://www.github.com/erenkucukersoftware)
+
+  
 ## License
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+[MIT](https://choosealicense.com/licenses/mit/)
+
+  
+
